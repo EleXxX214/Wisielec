@@ -1,13 +1,14 @@
 import sys
 
+
 from re import A
 
-
-word = "kamila"
 
 letters = []
 used_letters = []
 life = 5
+
+
 
 def find_indexes(word,guessing_letter):
     indexes = []
@@ -17,23 +18,36 @@ def find_indexes(word,guessing_letter):
     return indexes
 
 
+
+word = input("Podaj słowo do wisielca:")
+
 for _ in word:
     letters.append("_")
 
 
 while life >= 1:
+ 
     print("----------------")
     print("Pozostało żyć:",life)
     print("----------------")
     print(letters)
     print("\n")
-    guessing_letter = input("Podaj litere:")
+
+    while True:
+        guessing_letter = input("Podaj litere:")
+        
+        if len(guessing_letter) == 1 and guessing_letter.isdigit() is False and guessing_letter.isalpha() is True:
+            break
+        
+        
+    print(type(guessing_letter))
+
+
     print("\n")
+
     if guessing_letter in used_letters:
         life -= 1
     used_letters.append(guessing_letter)
-
-    
 
     found_indexes = find_indexes(word,guessing_letter)
 

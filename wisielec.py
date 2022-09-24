@@ -38,6 +38,7 @@ while life >= 1:
         
         if len(guessing_letter) == 1 and guessing_letter.isdigit() is False and guessing_letter.isalpha() is True:
             break
+        print("Możesz podać tylko jedną LITERĘ!")
         
         
     print(type(guessing_letter))
